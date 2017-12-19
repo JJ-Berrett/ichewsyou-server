@@ -1,0 +1,57 @@
+<form id="newSessionForm">
+
+    <div class="jumbotron">
+        <h3>Update a New Session</h3>
+        <div class="form-group">
+            <label>Session Title</label>
+            <input type="text" class="form-control" placeholder="Enter Session Title" ng-model="session.title"
+                   required/>
+        </div>
+        <div class="form-group">
+            <label>Speaker Name</label>
+            <input type="text" class="form-control" placeholder="First and Last Name (Required)" ng-model="session.speakername"/>
+        </div>
+        <div class="form-group">
+            <label>Speaker Bio</label>
+            <textarea class="form-control" rows="5" placeholder="Speaker Bio" ng-model="session.speakerbio"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Speaker Photo</label>
+            <input type="text" class="form-control" placeholder="Img URL (Can be from conference website img hosting)" ng-model="session.speakerphoto"/>
+        </div>
+        <div class="form-group">
+            <label>Demographic</label>
+            <input type="text" class="form-control" placeholder="Family, Friends, Spouses, SSA... ect" ng-model="session.demographic"/>
+        </div>
+        <div class="form-group">
+            <label>Room</label>
+            <input type="text" class="form-control" placeholder="Which ever room this session will be in" ng-model="session.room"/>
+        </div>
+        <div class="form-group">
+            <label>Time</label>
+            <input type="text" class="form-control" placeholder="9:00 - 10:00 (Please put the dash and colons" ng-model="session.sessiontime"/>
+        </div>
+        <div class="form-group">
+            <label>Session Time</label>
+            <select class="form-control" ng-model="session.sessiontype">
+                option value="" disabled selected style="display: none;">Select Session Time (Required)</option>
+                <option value="breakout 1">breakout 1</option>
+                <option value="breakout 2">breakout 2</option>
+                <option value="breakout 3">breakout 3</option>
+                <option value="breakout 4">breakout 4</option>
+                <option value="breakout 5">breakout 5</option>
+                <option value="keynote 1">keynote 1</option>
+                <option value="keynote 2">keynote 2</option>
+                <option value="keynote 3">keynote 3</option>
+                <option value="keynote 4">keynote 4</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" rows="10" placeholder="Information about the session" ng-model="session.description"></textarea>
+        </div>
+        <div class="form-actions">
+            <a href="#/allSessions" style="color: white;"> <button type="submit" class="btn btn-primary" href="#/newSession" ng-click="updateSession(session); resetForm()" >Submit</button></a>
+        </div>
+    </div>
+</form>

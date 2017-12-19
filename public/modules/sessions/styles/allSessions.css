@@ -1,0 +1,45 @@
+
+
+.breakout-card{
+    height: 500px;
+    width: 300px;
+}
+
+.mentor-card{
+    height: 300px;
+    width: 300px;
+}
+.breakout-module, .h4{
+    color: #0859A6;
+}
+
+.session-search-box{
+    color: #0859A6;
+}
+
+.session-header{
+    color: #0859A6;
+}
+
+.text{
+    display: block;
+    display: -webkit-box;
+    max-width: 400px;
+    height: 50px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.button-container{
+    position: absolute;
+    bottom: 0;
+}
+.breakout-button{
+    color: #0859A6;
+    margin-bottom: 15px;
+    margin-left: 35px;
+}
