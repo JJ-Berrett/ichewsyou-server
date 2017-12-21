@@ -1,41 +1,52 @@
 'use strict';
 let restaurantsDb = require('./restaurantsDb');
-let moment = require('moment');
 
 module.exports = {
 
-	getAllRestaurants: function (req, res) {
-		restaurantsDb.read_confSessions([], (err, sessions) => {
-			res.send(sessions);
-		})
+	getRestaurants: (req, res) => {
+    restaurantsDb.read_restaurants([], function (err, restaurants) {
+    	if (err) {
+    		console.error(err);
+    		res.status(500).send(err);
+			}
+			res.send(restaurants);
+		});
 	},
 
-	createRestaurant: function (req, res) {
-		let session = req.body;
-		restaurantsDb.write_confSession([
-			session.sessiontype,
-			session.title,
-			session.speakername,
-			session.speakerbio,
-			session.speakerphoto,
-			session.demographic,
-			session.room,
-			session.sessionTime,
-			session.description
+  getRestaurant: (req, res) => {
+	  restaurantsDb.read_restaurant([req.params.id], (err, response) => {
+	    if(err) {
+	      res.status(500).send(err);
+      }
+      else {
+	      res.status(200).send(response);
+      }
+    })
+  },
+
+	createRestaurant: (req, res) => {
+		let restaurant = req.body;
+		restaurantsDb.write_restaurant([
+      restaurant.name,
+      restaurant.google_url,
+      restaurant.type
 		], (err, response) => {
 			if (err) {
-				res.send("500")
-				console.log(err)
+        console.error(err);
+				res.status(500).send(err);
 			}
 			else {
-				console.log(response);
-				res.send("200");
+				res.status(200).send(restaurant);
 			}
 		});
 	},
-	deleteRestaruant(req, res){
-		restaurantsDb.delete_confSession([req.params.id], (err, response) => {
-			res.send(response);
-		})
+
+	deleteRestaurant: (req, res) => {
+		restaurantsDb.delete_restaurant([req.params.id], (err, response) => {
+		  if(err) {
+		    res.status(500).send(err);
+      }
+			res.status(202).send(response);
+		});
 	},
 };
