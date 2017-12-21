@@ -12,9 +12,10 @@ app.use(bodyParser.json());
 app.use(express.static('./public'));
 
 
-app.get('/api/restaurants', dbCtrl.getAllRestaurants);
-app.post('/api/addRestaurant', dbCtrl.createRestaurant);
-app.delete('/api/restaurant/:id', dbCtrl.deleteRestaruant);
+app.get('/api/restaurants', dbCtrl.getRestaurants);
+app.post('/api/restaurant', dbCtrl.createRestaurant);
+app.delete('/api/restaurant/:id', dbCtrl.deleteRestaurant);
+app.get('/api/restaurant/:id', dbCtrl.getRestaurant);
 
 
 app.listen(port, () => {

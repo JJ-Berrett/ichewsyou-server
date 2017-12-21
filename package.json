@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Mobile App allows user to plan out conference and rate sessions",
   "author": "JJ Berrett",
-  "license": "MIT",  
-  "main": "server.js",  
+  "license": "MIT",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/JJ-Berrett/ichewsyou-server.git"
